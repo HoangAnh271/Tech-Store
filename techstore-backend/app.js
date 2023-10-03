@@ -2,7 +2,7 @@ const express = require("express");
 const dbConnect = require("./config/dbConnect");
 const app = express();
 const dotenv = require("dotenv").config();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8000;
 const fs = require("fs");
 const https = require("https");
 const authRouter = require("./routes/authRoute");
@@ -73,16 +73,16 @@ app.listen(PORT, () => {
   console.log(`Server is running  at PORT ${PORT}`);
 });
 
-const privateKey = fs.readFileSync("./config/cert/key.pem", "utf8");
-const certificate = fs.readFileSync("./config/cert/cert.pem", "utf8");
+// const privateKey = fs.readFileSync("./config/cert/key.pem", "utf8");
+// const certificate = fs.readFileSync("./config/cert/cert.pem", "utf8");
 
-const credentials = {
-  key: privateKey,
-  cert: certificate,
-};
+// const credentials = {
+//   key: privateKey,
+//   cert: certificate,
+// };
 
-const httpsServer = https.createServer(credentials, app);
+// const httpsServer = https.createServer(credentials, app);
 
-httpsServer.listen(5001, () => {
-  console.log(`Server is running at PORT ${5001} using HTTPS`);
-});
+// httpsServer.listen(5001, () => {
+//   console.log(`Server is running at PORT ${5001} using HTTPS`);
+// });
