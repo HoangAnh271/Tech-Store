@@ -65,6 +65,9 @@ app.use("/api/payment", paymentRouter);
 app.use("/api/color", colorRouter);
 app.use("/api/report", reportRouter);
 app.use("/api/upload", uploadRouter);
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
 app.use(notFound);
 app.use(errorHandler);
